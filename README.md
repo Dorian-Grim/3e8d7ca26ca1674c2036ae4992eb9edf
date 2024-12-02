@@ -2,6 +2,14 @@
 
 ![demo](https://github.com/user-attachments/assets/34ee4254-b389-4906-b3f0-c994a94d5717)
 
+# Architecture diagram
+
+![image](https://github.com/user-attachments/assets/e5e03582-56c9-46b5-8822-5b6cd11e1912)
+
+# ERD diagram
+
+![image](https://github.com/user-attachments/assets/8c4d3844-8584-4fc3-8de0-a01c0f63dc67)
+
 # DefenseAssetManagement
 
 The solution is working as it is, see demo bellow. When building 3 projects are setup to start:
