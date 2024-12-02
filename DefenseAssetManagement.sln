@@ -3,20 +3,27 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34316.72
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soldiers", "Soldiers\Soldiers.csproj", "{89B4AE17-AE3B-4EF9-8D45-C8545C5DCF0A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Soldiers", "Soldiers\Soldiers.csproj", "{89B4AE17-AE3B-4EF9-8D45-C8545C5DCF0A}"
 	ProjectSection(ProjectDependencies) = postProject
 		{A3B5065D-7BB9-4396-AD26-65C590A0697B} = {A3B5065D-7BB9-4396-AD26-65C590A0697B}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandCenter", "CommandCenter\CommandCenter.csproj", "{037D8688-C39D-43BD-BE19-8918FEF6B213}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommandCenter", "CommandCenter\CommandCenter.csproj", "{037D8688-C39D-43BD-BE19-8918FEF6B213}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Communications", "Communications\Communications.csproj", "{D0BCFF59-A6B7-41F0-BEB8-9FBBF119E2D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Communications", "Communications\Communications.csproj", "{D0BCFF59-A6B7-41F0-BEB8-9FBBF119E2D9}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "AssetDatabase", "AssetDatabase\AssetDatabase.sqlproj", "{B3995F7D-B39F-40E2-8B68-66BE8B1BE6D3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAMmodels", "DAMmodels\DAMmodels.csproj", "{A3B5065D-7BB9-4396-AD26-65C590A0697B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{A687A6F9-6AD8-4BA8-911B-2E2F66F7F828}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{A687A6F9-6AD8-4BA8-911B-2E2F66F7F828}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B6443747-3FBF-45A5-94A1-515AB1F65134}"
+	ProjectSection(SolutionItems) = preProject
+		DAM architecture.dgml = DAM architecture.dgml
+		DAM erd.dgml = DAM erd.dgml
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
