@@ -1,0 +1,90 @@
+﻿<Window x:Class="Soldiers.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Soldiers"
+        mc:Ignorable="d"
+        Title="Soldier Registration" Height="450" Width="800">
+
+    <Grid>
+        <!-- Define Rows and Columns -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- For Name -->
+            <RowDefinition Height="Auto"/>
+            <!-- For Rank -->
+            <RowDefinition Height="Auto"/>
+            <!-- For Country -->
+            <RowDefinition Height="Auto"/>
+            <!-- For Training Info -->
+            <RowDefinition Height="Auto"/>
+            <!-- For Button -->
+            <RowDefinition Height="Auto"/>
+            <!-- For the DataGrid -->
+            <RowDefinition Height="*"/>
+            <!-- For the Console Text Area -->
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <!-- Label Column -->
+            <ColumnDefinition Width="*" />
+            <!-- Input Column -->
+        </Grid.ColumnDefinitions>
+
+        <!-- Name Field -->
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Name:" VerticalAlignment="Center" Margin="5"/>
+        <TextBox x:Name="NameTextBox" Grid.Row="0" Grid.Column="1" Width="250" Margin="5"/>
+
+        <!-- Rank Field -->
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Rank:" VerticalAlignment="Center" Margin="5"/>
+        <TextBox x:Name="RankTextBox" Grid.Row="1" Grid.Column="1" Width="250" Margin="5"/>
+
+        <!-- Country Field (ComboBox) -->
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Country:" VerticalAlignment="Center" Margin="5"/>
+        <ComboBox x:Name="CountryComboBox" Grid.Row="2" Grid.Column="1" Width="250" Margin="5">
+            <ComboBoxItem>United States</ComboBoxItem>
+            <ComboBoxItem>Canada</ComboBoxItem>
+            <ComboBoxItem>Germany</ComboBoxItem>
+            <ComboBoxItem>France</ComboBoxItem>
+            <ComboBoxItem>United Kingdom</ComboBoxItem>
+            <ComboBoxItem>Australia</ComboBoxItem>
+            <ComboBoxItem>India</ComboBoxItem>
+            <ComboBoxItem>Japan</ComboBoxItem>
+            <ComboBoxItem>South Korea</ComboBoxItem>
+        </ComboBox>
+
+        <!-- Training Information Field -->
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="Training Info:" VerticalAlignment="Center" Margin="5"/>
+        <TextBox x:Name="TrainingTextBox" Grid.Row="3" Grid.Column="1" Width="250" Height="100" Margin="5" AcceptsReturn="True"/>
+
+        <!-- Register Button -->
+        <Button Grid.Row="4" Grid.Column="0" Content="Register" Width="100" Height="30" Margin="5" VerticalAlignment="Top" HorizontalAlignment="Right" Click="RegisterButton_Click"/>
+        <!-- Status Label to show connection status -->
+        <TextBlock Grid.Row="4" Grid.Column="1" x:Name="StatusTextBlock" Text="Please register" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+        <!-- DataGrid to display registered soldiers -->
+        <DataGrid x:Name="SoldiersDataGrid" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Margin="5" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="Auto"/>
+                <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="Auto"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*"/>
+                <DataGridTextColumn Header="Rank" Binding="{Binding Rank}" Width="*"/>
+                <DataGridTextColumn Header="Country" Binding="{Binding Country}" Width="*"/>
+                <DataGridTextColumn Header="Training Info" Binding="{Binding TrainingInfo}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <!-- Create a TextBox to show console output -->
+        <TextBox x:Name="ConsoleOutputTextBox" 
+            Grid.Row="6"
+            Margin="10"
+            Grid.ColumnSpan="2"
+            VerticalScrollBarVisibility="Auto" 
+            HorizontalScrollBarVisibility="Auto" 
+            IsReadOnly="True" 
+            AcceptsReturn="True" 
+            HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+    </Grid>
+</Window>

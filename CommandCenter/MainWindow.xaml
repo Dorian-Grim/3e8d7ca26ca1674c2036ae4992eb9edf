@@ -1,0 +1,54 @@
+﻿<Window x:Class="CommandCenter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CommandCenter" xmlns:wpf="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
+        mc:Ignorable="d"
+        Title="Command center" Height="800" Width="800">
+    <Grid>
+        <!-- Button to Connect to WebSocket -->
+        <Button x:Name="ConnectButton" Content="Connect to WebSocket" 
+                HorizontalAlignment="Center" VerticalAlignment="Top" 
+                Margin="10,20,10,0" Width="200" Height="40" 
+                Click="ConnectButton_Click"/>
+
+        <!-- Status Label to show connection status -->
+        <TextBlock x:Name="StatusTextBlock" 
+                   HorizontalAlignment="Center" VerticalAlignment="Top" 
+                   Margin="10,80,10,10" 
+                   FontSize="16"/>
+
+        <!-- DataGrid to display registered soldiers -->
+        <DataGrid x:Name="SoldiersDataGrid" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,120,10,10" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="Auto"/>
+                <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="Auto"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*"/>
+                <DataGridTextColumn Header="Rank" Binding="{Binding Rank}" Width="*"/>
+                <DataGridTextColumn Header="Country" Binding="{Binding Country}" Width="*"/>
+                <DataGridTextColumn Header="Training Info" Binding="{Binding TrainingInfo}" Width="*"/>
+                <DataGridTextColumn Header="Long" Binding="{Binding Location.Long, StringFormat={}{0:F2}}" Width="*"/>
+                <DataGridTextColumn Header="Lat" Binding="{Binding Location.Lat, StringFormat={}{0:F2}}" Width="*"/>
+
+                <!-- Adding the Deploy button column -->
+                <DataGridTemplateColumn Header="Deploy" Width="Auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Deploy" Click="DeployButton_Click" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <!-- Create a TextBox to show console output -->
+        <TextBox x:Name="ConsoleOutputTextBox" 
+            Margin="10,300,10,289"
+            VerticalScrollBarVisibility="Auto" 
+            HorizontalScrollBarVisibility="Auto" 
+            IsReadOnly="True" 
+            AcceptsReturn="True"/>
+        <!-- WebView2 control for displaying map -->
+        <wpf:WebView2 Margin="10,500,10,10" Name="MapWebView" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+    </Grid>
+</Window>

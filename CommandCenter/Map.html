@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAM Map</title>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <style>
+        #map {
+            width: 100%;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <h1>DAM map</h1>
+    <div id="map"></div>
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script>
+        // Create a map object and set the view to Bucharest, Romania
+        const map = L.map('map').setView([44.4268, 26.1025], 14) // Coordinates of Bucharest
+        // Set up OpenStreetMap tiles as the base layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map)
+        // Add a marker at a specific location in Bucharest (e.g., Piata Unirii)
+        const marker = L.marker([44.4268, 26.1025]).addTo(map)
+        marker.bindPopup("<b>Command center</b>").openPopup();
+        window.markers = {}
+        window.currentMap = map;
+        const initMarker = (id, lat, lon) =>
+        {
+            window.markers[id] = L.marker([lat, lon]).addTo(window.currentMap)
+            window.currentMap.setView([lat, lon], 14)
+            window.markers[id].bindTooltip(`<b>Soldier:</b> ${id}`).openTooltip();
+        }
+        const updateMarkerPosition = (id, lat, lon) => 
+        {
+            window.markers[id].setLatLng([lat, lon])  // Update marker position
+            window.markers[id].bindTooltip(`<b>Soldier:</b> ${id}`).openTooltip()
+        }
+    </script>
+</body>
+</html>
