@@ -29,6 +29,6 @@ Publish the database project from the solution to local MSSQL server DAM db befo
 
 ## TODO
 
-1. MVVC design
+1. MVV~~C~~M design
 2. Unit tests
 3. End-to-end integration test
